@@ -17,7 +17,8 @@ import java.util.List;
 public class OrderEntity {
     @Id
     private String orderId;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "customerId" , nullable = false)
     private CustomerEntity customer;
     @OneToMany
     private List<OrderItemEntity> orderitems;
